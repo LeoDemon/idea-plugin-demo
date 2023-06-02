@@ -23,4 +23,11 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
     </extensions>
+    <actions>
+        <action id="FirstAction" class="tech.demonlee.ideaplugindemo.MyFirstAction" text="FirstAction"
+                description="First action for idea plugin">
+            <add-to-group group-id="MainToolBar" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl meta alt SLASH"/>
+        </action>
+    </actions>
 </idea-plugin>

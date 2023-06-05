@@ -29,5 +29,9 @@
             <add-to-group group-id="MainToolBar" anchor="last"/>
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl meta alt SLASH"/>
         </action>
+        <action id="tech.demonlee.ideaplugindemo.FileInfoAction" class="tech.demonlee.ideaplugindemo.FileInfoAction"
+                text="FileInfoAction">
+            <add-to-group group-id="FileMenu" anchor="first"/>
+        </action>
     </actions>
 </idea-plugin>

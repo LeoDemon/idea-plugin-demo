@@ -22,7 +22,12 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
+        <projectConfigurable groupId="tools" displayName="Read Test Config" id="read-test-id"
+                             instance="tech.demonlee.ideaplugindemo.factory.SettingFactory"/>
+        <toolWindow factoryClass="tech.demonlee.ideaplugindemo.factory.ReadFactory" id="Read-Test" secondary="false"
+                    anchor="right" icon="/icons/read-test-logo.png"/>
     </extensions>
+
     <actions>
         <action id="FirstAction" class="tech.demonlee.ideaplugindemo.MyFirstAction" text="FirstAction"
                 description="First action for idea plugin">

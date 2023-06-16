@@ -28,6 +28,13 @@
                     anchor="right" icon="/icons/read-test-logo.png"/>
     </extensions>
 
+    <applicationListeners>
+        <listener class="tech.demonlee.ideaplugindemo.MyProjectManagerListener"
+                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+        <listener class="tech.demonlee.ideaplugindemo.MyExecutionListener"
+                  topic="com.intellij.execution.ExecutionListener"/>
+    </applicationListeners>
+
     <actions>
         <action id="FirstAction" class="tech.demonlee.ideaplugindemo.MyFirstAction" text="FirstAction"
                 description="First action for idea plugin">

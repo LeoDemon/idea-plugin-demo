@@ -20,6 +20,11 @@ intellij {
     plugins.set(listOf(/* Plugin Dependencies */))
 }
 
+dependencies {
+    // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+}
+
 tasks {
     // Set the JVM compatibility versions
     withType<JavaCompile> {

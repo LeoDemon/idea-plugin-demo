@@ -19,7 +19,7 @@ public class ReadFactory implements ToolWindowFactory {
 
     @Override
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
-        ContentFactory contentFactory = ContentFactory.getInstance();
+        ContentFactory contentFactory = ContentFactory.SERVICE.getInstance();
         Content content = contentFactory.createContent(readUI.getComponent(), "", false);
         toolWindow.getContentManager().addContent(content);
         GlobalConfig.readUI = readUI;

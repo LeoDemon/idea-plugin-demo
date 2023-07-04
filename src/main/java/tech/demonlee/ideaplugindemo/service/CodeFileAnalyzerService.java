@@ -1,6 +1,5 @@
 package tech.demonlee.ideaplugindemo.service;
 
-import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
 import tech.demonlee.ideaplugindemo.model.CodeFileAnalyzerResult;
@@ -16,7 +15,7 @@ import java.util.Optional;
  */
 public class CodeFileAnalyzerService {
 
-    private static final Logger log = Logger.getInstance(CodeFileAnalyzerService.class);
+    private static final String overrideAnnotationFQDN = "java.lang.Override";
 
     private final Project project;
 
@@ -37,8 +36,6 @@ public class CodeFileAnalyzerService {
     }
 
     public CodeFileAnalyzerResult analyze() {
-        log.info("+++++++++++++++++++++ analyze now...");
-
         this.privateFields = new ArrayList<>();
         this.publicMethods = new ArrayList<>();
         this.overrideMethods = new ArrayList<>();
@@ -56,7 +53,17 @@ public class CodeFileAnalyzerService {
                 if (method.hasModifierProperty(PsiModifier.PUBLIC)) {
                     publicMethods.add(method.getName());
                 }
-                if (method.hasModifierProperty(PsiModifier.PROTECTED)) {
+                PsiAnnotation[] annotations = method.getAnnotations();
+                for (PsiAnnotation a : annotations) {
+                    PsiJavaCodeReferenceElement e = a.getNameReferenceElement();
+                    System.out.println("QualifiedName: " + a.getQualifiedName());
+                    if (Objects.nonNull(e)) {
+                        System.out.println("QualifiedName2:" + e.getQualifiedName());
+                        System.out.println("ReferenceName:" + e.getReferenceName());
+                    }
+                    System.out.println("----------------------------------------------------------------");
+                }
+                if (method.hasAnnotation(overrideAnnotationFQDN)) {
                     overrideMethods.add(method.getName());
                 }
             }

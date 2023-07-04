@@ -1,5 +1,6 @@
 package tech.demonlee.ideaplugindemo.service;
 
+import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
 import tech.demonlee.ideaplugindemo.model.CodeFileAnalyzerResult;
@@ -19,6 +20,8 @@ public class CodeFileAnalyzerService {
 
     private final Project project;
 
+    private final DataContext dataContext;
+
     private final PsiFile psiFile;
 
     private List<String> privateFields;
@@ -27,12 +30,13 @@ public class CodeFileAnalyzerService {
 
     private List<String> overrideMethods;
 
-    public CodeFileAnalyzerService(Project project, PsiFile psiFile) {
-        if (Objects.isNull(project) || Objects.isNull(psiFile)) {
+    public CodeFileAnalyzerService(Project project, PsiFile psiFile, DataContext dataContext) {
+        if (Objects.isNull(project) || Objects.isNull(psiFile) || Objects.isNull(dataContext)) {
             throw new IllegalArgumentException("invalid project or psiFile");
         }
         this.project = project;
         this.psiFile = psiFile;
+        this.dataContext = dataContext;
     }
 
     public CodeFileAnalyzerResult analyze() {
@@ -69,7 +73,8 @@ public class CodeFileAnalyzerService {
             }
         });
 
-        return new CodeFileAnalyzerResult(countPrivateFields(), countPublicMethods(), countOverrideMethods());
+        return new CodeFileAnalyzerResult(countPrivateFields(), countPublicMethods(),
+                countOverrideMethods(), dataContext);
     }
 
     private int countPrivateFields() {

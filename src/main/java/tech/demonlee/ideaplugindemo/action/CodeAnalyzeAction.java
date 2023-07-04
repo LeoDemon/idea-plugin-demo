@@ -3,6 +3,7 @@ package tech.demonlee.ideaplugindemo.action;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
+import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.psi.PsiFile;
@@ -36,7 +37,8 @@ public class CodeAnalyzeAction extends AnAction {
             return;
         }
 
-        CodeFileAnalyzerService analyzerService = new CodeFileAnalyzerService(project, javaFile);
+        DataContext dataContext = e.getDataContext();
+        CodeFileAnalyzerService analyzerService = new CodeFileAnalyzerService(project, javaFile, dataContext);
         CodeFileAnalyzerResult result = analyzerService.analyze();
         Messages.showMessageDialog("Code Analyze Result, " + result.display(),
                 "Code Analyze Demo", Messages.getInformationIcon());

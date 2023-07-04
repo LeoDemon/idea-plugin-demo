@@ -1,4 +1,4 @@
-package tech.demonlee.ideaplugindemo;
+package tech.demonlee.ideaplugindemo.listener;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManagerListener;

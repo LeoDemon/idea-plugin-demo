@@ -1,4 +1,4 @@
-package tech.demonlee.ideaplugindemo;
+package tech.demonlee.ideaplugindemo.listener;
 
 import com.intellij.execution.ExecutionListener;
 import com.intellij.execution.process.ProcessHandler;

@@ -1,4 +1,4 @@
-package tech.demonlee.ideaplugindemo;
+package tech.demonlee.ideaplugindemo.action;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;

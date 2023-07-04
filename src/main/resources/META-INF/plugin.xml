@@ -29,19 +29,19 @@
     </extensions>
 
     <applicationListeners>
-        <listener class="tech.demonlee.ideaplugindemo.MyProjectManagerListener"
+        <listener class="tech.demonlee.ideaplugindemo.listener.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
-        <listener class="tech.demonlee.ideaplugindemo.MyExecutionListener"
+        <listener class="tech.demonlee.ideaplugindemo.listener.MyExecutionListener"
                   topic="com.intellij.execution.ExecutionListener"/>
     </applicationListeners>
 
     <actions>
-        <action id="FirstAction" class="tech.demonlee.ideaplugindemo.MyFirstAction" text="FirstAction"
+        <action id="FirstAction" class="tech.demonlee.ideaplugindemo.action.MyFirstAction" text="FirstAction"
                 description="First action for idea plugin">
             <add-to-group group-id="MainToolBar" anchor="last"/>
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl meta alt SLASH"/>
         </action>
-        <action id="tech.demonlee.ideaplugindemo.FileInfoAction" class="tech.demonlee.ideaplugindemo.FileInfoAction"
+        <action id="tech.demonlee.ideaplugindemo.action.FileInfoAction" class="tech.demonlee.ideaplugindemo.action.FileInfoAction"
                 text="FileInfoAction">
             <add-to-group group-id="FileMenu" anchor="first"/>
         </action>
@@ -52,4 +52,6 @@
     </actions>
 
     <depends>com.intellij.modules.java</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.platform</depends>
 </idea-plugin>

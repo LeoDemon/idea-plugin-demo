@@ -41,13 +41,18 @@
             <add-to-group group-id="MainToolBar" anchor="last"/>
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl meta alt SLASH"/>
         </action>
-        <action id="tech.demonlee.ideaplugindemo.action.FileInfoAction" class="tech.demonlee.ideaplugindemo.action.FileInfoAction"
+        <action id="tech.demonlee.ideaplugindemo.action.FileInfoAction"
+                class="tech.demonlee.ideaplugindemo.action.FileInfoAction"
                 text="FileInfoAction">
             <add-to-group group-id="FileMenu" anchor="first"/>
         </action>
         <action id="CodeAnalyzeAction" class="tech.demonlee.ideaplugindemo.action.CodeAnalyzeAction"
                 text="Code Analyze Demo" description="Code analyze for Java file">
             <add-to-group group-id="GenerateGroup" anchor="first"/>
+        </action>
+        <action id="Vo2DtoGenerateAction" class="tech.demonlee.ideaplugindemo.action.Vo2DtoGenerateAction"
+                text="Model Convert Demo" description="demo for model convert">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
         </action>
     </actions>
 

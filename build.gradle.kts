@@ -1,6 +1,7 @@
 plugins {
     id("java")
     id("org.jetbrains.intellij") version "1.12.0"
+    id("io.freefair.lombok") version "8.1.0"
 }
 
 group = "tech.demonlee"
@@ -22,6 +23,8 @@ intellij {
 dependencies {
     // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
+
+    implementation("com.google.guava:guava:32.1.0-jre")
 }
 
 tasks {

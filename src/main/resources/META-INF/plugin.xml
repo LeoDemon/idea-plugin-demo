@@ -54,6 +54,11 @@
                 text="Model Convert Demo" description="demo for model convert">
             <add-to-group group-id="GenerateGroup" anchor="last"/>
         </action>
+        <action id="tech.demonlee.ideaplugindemo.action.CodeMergeAction"
+                class="tech.demonlee.ideaplugindemo.action.CodeMergeAction" text="Code Merge Demo"
+                description="Demo for code diff and merge">
+            <add-to-group group-id="GenerateGroup" anchor="first"/>
+        </action>
     </actions>
 
     <depends>com.intellij.modules.java</depends>
